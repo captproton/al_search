@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @home.name %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @home.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @home.city %>
+</p>
+
+<p>
+  <strong>Sate:</strong>
+  <%= @home.sate %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @home.zip %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @home.website %>
+</p>
+
+<p>
+  <strong>Basic description:</strong>
+  <%= @home.basic_description %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @home.details %>
+</p>
+
+<%= link_to 'Edit', edit_home_path(@home) %> |
+<%= link_to 'Back', homes_path %>

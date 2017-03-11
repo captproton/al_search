@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311174227) do
+ActiveRecord::Schema.define(version: 20170311185144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "full_name"
+    t.string   "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "home_id"
+    t.index ["home_id"], name: "index_contacts_on_home_id", using: :btree
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -30,4 +39,18 @@ ActiveRecord::Schema.define(version: 20170311174227) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
+  create_table "homes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "sate"
+    t.string   "zip"
+    t.string   "website"
+    t.text     "basic_description"
+    t.text     "details"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_foreign_key "contacts", "homes"
 end
